@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:priyanhi_getx_ui/app/on_boarding/view/on_boarding_screen/on_boarding_screen.dart';
+import 'package:get/get.dart';
+import 'homepage/view/navigation_screen.dart/navigation_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Flutter App with GetX',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        primarySwatch: Colors.blue,
       ),
-      home: const OnBoardingScreen(),
+      home: NavigationBarScreen(),
     );
   }
 }

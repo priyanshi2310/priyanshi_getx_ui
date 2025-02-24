@@ -138,7 +138,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     child: GestureDetector(
                       onTap: () {
                         setState(() {
-                          pageController.jumpToPage(3); // Skip to the last page
+                          pageController.jumpToPage(3); 
                         });
                       },
                       child: Container(
