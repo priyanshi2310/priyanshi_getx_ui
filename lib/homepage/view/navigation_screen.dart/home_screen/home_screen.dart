@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:priyanhi_getx_ui/homepage/view/navigation_screen.dart/home_screen/data_file/home_screen._data.dart';
 
@@ -9,7 +11,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<String> images = ['images/BG.png', 'images/food.png', 'images/BG.png'];
+  List<String> images = ['images/BG.png', 'images/food.png', 'images/BG.jpg'];
   List<String> title = ['Krispy Creme', 'Mario Italiano', 'Krispy Creme'];
   List<String> text = [
     'St Georgece Terrace, Perth',
@@ -332,7 +334,450 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: 24,
             ),
-            Image.asset('images/BG.png')
+            Image.asset('images/BG.png'),
+            SizedBox(
+              height: 16,
+            ),
+            Text(
+              'McDonald\'s',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w300,
+                color: Color(0xff010F07),
+              ),
+            ),
+            Row(
+              // mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  '\$\$',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xff868686),
+                  ),
+                ),
+                SizedBox(
+                  width: 12,
+                ),
+                Image.asset('images/Oval.png'),
+                SizedBox(
+                  width: 8,
+                ),
+                Text(
+                  'Chinese',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xff868686),
+                  ),
+                ),
+                SizedBox(
+                  width: 12,
+                ),
+                Image.asset('images/Oval.png'),
+                SizedBox(
+                  width: 8,
+                ),
+                Text(
+                  'American',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xff868686),
+                  ),
+                ),
+                SizedBox(
+                  width: 12,
+                ),
+                Image.asset('images/Oval.png'),
+                SizedBox(
+                  width: 8,
+                ),
+                Text(
+                  'Deshi food',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xff868686),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 9,
+            ),
+            Row(
+              children: [
+                Text(
+                  '4.3 ',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w300,
+                    color: Color(0xff010F07),
+                  ),
+                ),
+                SizedBox(
+                  width: 9,
+                ),
+                Icon(
+                  Icons.star,
+                  color: Color(0xffEEA734),
+                  size: 18,
+                ),
+                SizedBox(
+                  width: 2,
+                ),
+                Text(
+                  '200+ Ratings',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w300,
+                    color: Color(0xff010F07),
+                  ),
+                ),
+                SizedBox(
+                  width: 13,
+                ),
+                Icon(
+                  Icons.schedule_rounded,
+                  size: 18,
+                  color: Color(0xff000000),
+                ),
+                SizedBox(
+                  width: 6,
+                ),
+                Text(
+                  '25 Min',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w300,
+                    color: Color(0xff010F07),
+                  ),
+                ),
+                SizedBox(
+                  width: 14,
+                ),
+                Image.asset('images/Oval.png'),
+                SizedBox(
+                  width: 8,
+                ),
+                Icon(
+                  Icons.paid,
+                  color: Color(0xff868686),
+                  size: 18,
+                ),
+                SizedBox(
+                  width: 6,
+                ),
+                Text(
+                  'Free',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w300,
+                    color: Color(0xff010F07),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Image.asset('images/BG.jpg'),
+            SizedBox(
+              height: 16,
+            ),
+            Text(
+              'Cafe Brichor’s',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w300,
+                color: Color(0xff010F07),
+              ),
+            ),
+            Row(
+              // mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  '\$\$',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xff868686),
+                  ),
+                ),
+                SizedBox(
+                  width: 12,
+                ),
+                Image.asset('images/Oval.png'),
+                SizedBox(
+                  width: 8,
+                ),
+                Text(
+                  'Chinese',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xff868686),
+                  ),
+                ),
+                SizedBox(
+                  width: 12,
+                ),
+                Image.asset('images/Oval.png'),
+                SizedBox(
+                  width: 8,
+                ),
+                Text(
+                  'American',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xff868686),
+                  ),
+                ),
+                SizedBox(
+                  width: 12,
+                ),
+                Image.asset('images/Oval.png'),
+                SizedBox(
+                  width: 8,
+                ),
+                Text(
+                  'Deshi food',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xff868686),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 9,
+            ),
+            Row(
+              children: [
+                Text(
+                  '4.3 ',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w300,
+                    color: Color(0xff010F07),
+                  ),
+                ),
+                SizedBox(
+                  width: 9,
+                ),
+                Icon(
+                  Icons.star,
+                  color: Color(0xffEEA734),
+                  size: 18,
+                ),
+                SizedBox(
+                  width: 2,
+                ),
+                Text(
+                  '200+ Ratings',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w300,
+                    color: Color(0xff010F07),
+                  ),
+                ),
+                SizedBox(
+                  width: 13,
+                ),
+                Icon(
+                  Icons.schedule_rounded,
+                  size: 18,
+                  color: Color(0xff000000),
+                ),
+                SizedBox(
+                  width: 6,
+                ),
+                Text(
+                  '25 Min',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w300,
+                    color: Color(0xff010F07),
+                  ),
+                ),
+                SizedBox(
+                  width: 14,
+                ),
+                Image.asset('images/Oval.png'),
+                SizedBox(
+                  width: 8,
+                ),
+                Icon(
+                  Icons.paid,
+                  color: Color(0xff868686),
+                  size: 18,
+                ),
+                SizedBox(
+                  width: 6,
+                ),
+                Text(
+                  'Free',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w300,
+                    color: Color(0xff010F07),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Image.asset('images/BG.png'),
+            SizedBox(
+              height: 16,
+            ),
+            Text(
+              'Cafe Brichor’s',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w300,
+                color: Color(0xff010F07),
+              ),
+            ),
+            Row(
+              // mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  '\$\$',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xff868686),
+                  ),
+                ),
+                SizedBox(
+                  width: 12,
+                ),
+                Image.asset('images/Oval.png'),
+                SizedBox(
+                  width: 8,
+                ),
+                Text(
+                  'Chinese',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xff868686),
+                  ),
+                ),
+                SizedBox(
+                  width: 12,
+                ),
+                Image.asset('images/Oval.png'),
+                SizedBox(
+                  width: 8,
+                ),
+                Text(
+                  'American',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xff868686),
+                  ),
+                ),
+                SizedBox(
+                  width: 12,
+                ),
+                Image.asset('images/Oval.png'),
+                SizedBox(
+                  width: 8,
+                ),
+                Text(
+                  'Deshi food',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xff868686),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 9,
+            ),
+            Row(
+              children: [
+                Text(
+                  '4.3 ',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w300,
+                    color: Color(0xff010F07),
+                  ),
+                ),
+                SizedBox(
+                  width: 9,
+                ),
+                Icon(
+                  Icons.star,
+                  color: Color(0xffEEA734),
+                  size: 18,
+                ),
+                SizedBox(
+                  width: 2,
+                ),
+                Text(
+                  '200+ Ratings',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w300,
+                    color: Color(0xff010F07),
+                  ),
+                ),
+                SizedBox(
+                  width: 13,
+                ),
+                Icon(
+                  Icons.schedule_rounded,
+                  size: 18,
+                  color: Color(0xff000000),
+                ),
+                SizedBox(
+                  width: 6,
+                ),
+                Text(
+                  '25 Min',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w300,
+                    color: Color(0xff010F07),
+                  ),
+                ),
+                SizedBox(
+                  width: 14,
+                ),
+                Image.asset('images/Oval.png'),
+                SizedBox(
+                  width: 8,
+                ),
+                Icon(
+                  Icons.paid,
+                  color: Color(0xff868686),
+                  size: 18,
+                ),
+                SizedBox(
+                  width: 6,
+                ),
+                Text(
+                  'Free',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w300,
+                    color: Color(0xff010F07),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
