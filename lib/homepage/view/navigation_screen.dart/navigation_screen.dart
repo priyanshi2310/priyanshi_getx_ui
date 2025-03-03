@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
 // import 'package:priyanhi_getx_ui/app/on_boarding/view/on_boarding_screen/on_boarding_screen.dart';
-import 'package:priyanhi_getx_ui/homepage/view/navigation_screen.dart/home_screen/home_screen.dart';
+import 'package:priyanhi_getx_ui/app/home_screen/home_screen.dart';
 
 import 'controller/navigation_controller.dart';
 

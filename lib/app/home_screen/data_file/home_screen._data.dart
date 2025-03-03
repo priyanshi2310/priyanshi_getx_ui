@@ -12,17 +12,17 @@ class HomeScreenDataModel {
 
 final List<HomeScreenDataModel> homeScreenData = [
   HomeScreenDataModel(
-    imagePath: 'images/BG.png',
+    imagePath: 'images/feature9.png',
     title: 'Krispy Creme',
     detail: 'St Georgece Terrace, Perth',
   ),
   HomeScreenDataModel(
-    imagePath: 'images/food.png',
+    imagePath: 'images/feature8.png',
     title: 'Mario Italiano',
     detail: 'Hay street , Perth City',
   ),
   HomeScreenDataModel(
-    imagePath: 'images/BG.png',
+    imagePath: 'images/food.png',
     title: 'Krispy Creme',
     detail: 'St Georgece Terrace, Perth',
   ),

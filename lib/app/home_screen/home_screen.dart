@@ -1,7 +1,9 @@
-
-
 import 'package:flutter/material.dart';
-import 'package:priyanhi_getx_ui/homepage/view/navigation_screen.dart/home_screen/data_file/home_screen._data.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+
+import 'package:priyanhi_getx_ui/app/home_screen/data_file/home_screen._data.dart';
+import 'package:priyanhi_getx_ui/routes/app_routes.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -11,7 +13,16 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<String> images = ['images/BG.png', 'images/food.png', 'images/BG.jpg'];
+  List<String> images = [
+    'images/feature9.png',
+    'images/feature8.png',
+    'images/food.png'
+  ];
+  List<String> images1 = [
+    'images/feature.png',
+    'images/feature3.jpg',
+    'images/feature8.png'
+  ];
   List<String> title = ['Krispy Creme', 'Mario Italiano', 'Krispy Creme'];
   List<String> text = [
     'St Georgece Terrace, Perth',
@@ -87,14 +98,20 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: Color(0xff010F07),
                   ),
                 ),
-                Text(
-                  'See all',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: Color(0xffF8B64C),
-                  ),
-                ),
+                InkWell(
+                    onTap: () {
+                      print("Call nasvigation");
+                      // Use Get.toNamed() instead of Navigator.pushNamed
+                      Get.toNamed(AppRoutes.featuredScreen);
+                    },
+                    child: Text(
+                      'See all',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xffF8B64C),
+                      ),
+                    )),
               ],
             ),
             SizedBox(
@@ -230,7 +247,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Image.asset(
-                              images[index],
+                              images1[index],
                               height: 160,
                               width: 200,
                               fit: BoxFit.fill,
@@ -334,7 +351,7 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: 24,
             ),
-            Image.asset('images/BG.png'),
+            Image.asset('images/feature2.png'),
             SizedBox(
               height: 16,
             ),
@@ -632,7 +649,7 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: 20,
             ),
-            Image.asset('images/BG.png'),
+            Image.asset('images/feature4.png'),
             SizedBox(
               height: 16,
             ),
