@@ -219,6 +219,32 @@ class DetailScreen extends StatefulWidget {
 
 class _DetailScreenState extends State<DetailScreen> {
   List<String> text = ["Beef & Lamb", "SeaFood", "Appitizers", "Dim Sum"];
+  List<String> text1 = ["Cookie Sandwich", "Combo Burger", "Cookie Sandwich"];
+  List<String> text2 = ["Oyster Dish", "Oyster On Ice", "Fried Rice on Pot"];
+  List<String> images = [
+    "images/Header-image.png",
+    "mages/feature14.png",
+    "images/feature15.png",
+    "images/feature16.png"
+  ];
+  List<String> images1 = [
+    "images/food1.png",
+    "images/food2.png",
+    "images/food3.png",
+  ];
+  List<String> images2 = [
+    "images/food.png",
+    "images/food4.png",
+    "images/food5.png",
+  ];
+  List<String> images3 = [
+    "images/Header.png",
+    "images/feature2.png",
+    "images/Header-image.png",
+    "images/feature1.jpg",
+    "images/food.png"
+  ];
+
   final List<DetailScreenDataModel> detailScreenDataList = [
     DetailScreenDataModel(
       imagePath: 'images/feature14.png',
@@ -235,26 +261,44 @@ class _DetailScreenState extends State<DetailScreen> {
   ];
 
   List<bool> tapped = List.generate(5, (index) => false);
-  List<bool> tapped1 = [false, false, false, false];
+  late List<bool> tapped1;
+
+  @override
+  void initState() {
+    super.initState();
+
+    tapped1 = List<bool>.filled(text.length, false);
+  }
+
+  final PageController _pageController = PageController();
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        // Wrap the entire body inside a scrollable widget
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Your Stack with header image, etc.
             SizedBox(
               height: 280,
               width: double.infinity,
               child: Stack(
                 children: [
-                  Image.asset(
-                    'images/Header-image.png',
-                    fit: BoxFit.cover,
-                    width: double.infinity,
+                  PageView.builder(
+                    controller: _pageController,
+                    itemCount: images3.length,
+                    itemBuilder: (context, index) {
+                      return Image.asset(
+                        images3[index],
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                      );
+                    },
                   ),
                   Positioned(
                     top: 54,
@@ -587,16 +631,18 @@ class _DetailScreenState extends State<DetailScreen> {
                             });
                           },
                           child: SizedBox(
-                            width: 180,
+                            width: 160,
                             height: 32,
-                            child: Text(
-                              text[index],
-                              style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.w600,
-                                color: tapped[index]
-                                    ? Color(0xff010F07)
-                                    : Color(0xff868686),
+                            child: Center(
+                              child: Text(
+                                text[index],
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w600,
+                                  color: tapped[index]
+                                      ? Color(0xff010F07)
+                                      : Color(0xff868686),
+                                ),
                               ),
                             ),
                           ),
@@ -605,9 +651,207 @@ class _DetailScreenState extends State<DetailScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 28,
                   ),
-                  Text('data'),
+                  Text(
+                    'Most Populars',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w300,
+                      color: Color(0xff010F07),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 450,
+                    child: ListView.separated(
+                      itemCount: images1.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Container(
+                          margin: EdgeInsets.only(bottom: 20, top: 20),
+                          height: 110,
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                height: 110,
+                                width: 110,
+                                child: Image.asset(
+                                  images1[index],
+                                ),
+                              ),
+                              SizedBox(
+                                width: 18,
+                              ),
+                              Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    text1[index],
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w300,
+                                      color: Color(0xff010F07),
+                                    ),
+                                  ),
+                                  Text(
+                                    'Shortbread, chocolate turtle\ncookies, and red velvet.',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xff010F07),
+                                    ),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        '\$\$',
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400,
+                                          color: Color(0xff010F07),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 11,
+                                      ),
+                                      Image.asset('images/Oval.png'),
+                                      SizedBox(
+                                        width: 8,
+                                      ),
+                                      Text(
+                                        'Chinese',
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400,
+                                          color: Color(0xff010F07),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 64,
+                                      ),
+                                      Text(
+                                        'AUD\$10',
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w600,
+                                          color: Color(0xffEEA734),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        );
+                      },
+                      separatorBuilder: (BuildContext context, int index) {
+                        return Divider();
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    height: 34,
+                  ),
+                  Text(
+                    'Sea Foods',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w300,
+                      color: Color(0xff010F07),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 450,
+                    child: ListView.separated(
+                      itemCount: images1.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Container(
+                          margin: EdgeInsets.only(bottom: 20, top: 20),
+                          height: 110,
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                height: 110,
+                                width: 110,
+                                child: Image.asset(
+                                  images2[index],
+                                ),
+                              ),
+                              SizedBox(
+                                width: 18,
+                              ),
+                              Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    text2[index],
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w300,
+                                      color: Color(0xff010F07),
+                                    ),
+                                  ),
+                                  Text(
+                                    'Shortbread, chocolate turtle\ncookies, and red velvet.',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xff010F07),
+                                    ),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        '\$\$',
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400,
+                                          color: Color(0xff010F07),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 11,
+                                      ),
+                                      Image.asset('images/Oval.png'),
+                                      SizedBox(
+                                        width: 8,
+                                      ),
+                                      Text(
+                                        'Chinese',
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400,
+                                          color: Color(0xff010F07),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 64,
+                                      ),
+                                      Text(
+                                        'AUD\$10',
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w600,
+                                          color: Color(0xffEEA734),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        );
+                      },
+                      separatorBuilder: (BuildContext context, int index) {
+                        return Divider();
+                      },
+                    ),
+                  ),
                 ],
               ),
             ),
