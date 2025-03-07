@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:priyanhi_getx_ui/app/order/view/order_screen.dart';
 
 class FeaturedScreen extends StatefulWidget {
   const FeaturedScreen({super.key});
@@ -221,6 +222,7 @@ class _DetailScreenState extends State<DetailScreen> {
   List<String> text = ["Beef & Lamb", "SeaFood", "Appitizers", "Dim Sum"];
   List<String> text1 = ["Cookie Sandwich", "Combo Burger", "Cookie Sandwich"];
   List<String> text2 = ["Oyster Dish", "Oyster On Ice", "Fried Rice on Pot"];
+  int activeTab = 0;
   List<String> images = [
     "images/Header-image.png",
     "mages/feature14.png",
@@ -262,6 +264,7 @@ class _DetailScreenState extends State<DetailScreen> {
 
   List<bool> tapped = List.generate(5, (index) => false);
   late List<bool> tapped1;
+  int currentPage = 0;
 
   @override
   void initState() {
@@ -292,6 +295,11 @@ class _DetailScreenState extends State<DetailScreen> {
                   PageView.builder(
                     controller: _pageController,
                     itemCount: images3.length,
+                    onPageChanged: (value) {
+                      setState(() {
+                        currentPage = value;
+                      });
+                    },
                     itemBuilder: (context, index) {
                       return Image.asset(
                         images3[index],
@@ -342,11 +350,11 @@ class _DetailScreenState extends State<DetailScreen> {
                                 margin: EdgeInsets.only(right: 8),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(100),
-                                  color: tapped[index]
+                                  color: currentPage == index
                                       ? Color(0xffFFFFFF)
                                       : Colors.grey,
                                 ),
-                                duration: Duration(seconds: 2),
+                                duration: Duration(milliseconds: 100),
                                 width: 8,
                                 height: 5,
                               ));
@@ -627,7 +635,8 @@ class _DetailScreenState extends State<DetailScreen> {
                         return GestureDetector(
                           onTap: () {
                             setState(() {
-                              tapped[index] = !tapped[index];
+                              activeTab = index;
+                              // tapped[index] = !tapped[index];
                             });
                           },
                           child: SizedBox(
@@ -639,7 +648,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                 style: TextStyle(
                                   fontSize: 24,
                                   fontWeight: FontWeight.w600,
-                                  color: tapped[index]
+                                  color: activeTab == index
                                       ? Color(0xff010F07)
                                       : Color(0xff868686),
                                 ),
@@ -772,11 +781,20 @@ class _DetailScreenState extends State<DetailScreen> {
                           height: 110,
                           child: Row(
                             children: [
-                              SizedBox(
-                                height: 110,
-                                width: 110,
-                                child: Image.asset(
-                                  images2[index],
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(
+                                    builder: (context) {
+                                      return OrderScreen();
+                                    },
+                                  ));
+                                },
+                                child: SizedBox(
+                                  height: 110,
+                                  width: 110,
+                                  child: Image.asset(
+                                    images2[index],
+                                  ),
                                 ),
                               ),
                               SizedBox(

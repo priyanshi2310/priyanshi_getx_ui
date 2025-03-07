@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-
 import 'package:priyanhi_getx_ui/app/home_screen/data_file/home_screen._data.dart';
-import 'package:priyanhi_getx_ui/homepage/view/navigation_screen.dart/controller/navigation_controller.dart';
 import 'package:priyanhi_getx_ui/routes/app_routes.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,7 +9,6 @@ class HomeScreen extends StatefulWidget {
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
-
 class _HomeScreenState extends State<HomeScreen> {
   List<String> images = [
     'images/feature9.png',
@@ -102,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 InkWell(
                     onTap: () {
-// NavigationController ctrl = Get.find<NavigationController>();
+                   // NavigationController ctrl = Get.find<NavigationController>();
                       print("Call nasvigation");
                       // Use Get.toNamed() instead of Navigator.pushNamed
                       // ctrl.changeTabIndex(1);
